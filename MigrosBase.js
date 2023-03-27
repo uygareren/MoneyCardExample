@@ -8,10 +8,10 @@ class MigrosBase{
     ]
     */
 
-    constructor(name, surname, isHaveCArd, products){
+    constructor(name, surname, isHaveCard, products){
         this.name = name;
         this.surname = surname;
-        this.isHaveCArd = isHaveCArd;
+        this.isHaveCard = isHaveCard;
         this.products = products
     }
 
@@ -21,15 +21,18 @@ class MigrosBase{
 
         if(this.checkProducts(this.products)){
 
-            if(this.isHaveCArd){
+            if(this.isHaveCard){
                 this.products.forEach(product => {
                     payAmount += (product.price * ((100 - this.discountRate)/100))
                 });
-            } 
+            }else{
+                this.products.forEach(product => {
+                    payAmount += product.price
+                });
+
+            }
         }else{
-            this.products.forEach(product => {
-                payAmount += product.price;
-            });
+            alert("Basket can not be empty!")
             
         }
 

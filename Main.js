@@ -24,15 +24,17 @@ const products = [
 
 
 let isHasCard = prompt(message)
-let result = false;
+var result = false;
+
+var name, surname;
 
 if(isHasCard == 1){
     result = true;
 
-    let name = prompt("Enter your name")
+    name = prompt("Enter your name")
     name = name.toUpperCase();
 
-    let surname = prompt("Enter your surname")
+    surname = prompt("Enter your surname")
     surname = surname.toUpperCase();
 
     const musteri = new Musteri(name, surname, result,products)
@@ -42,7 +44,18 @@ if(isHasCard == 1){
     alert(`Customer infos: ${name} ${surname} and amount of paid ${calculateMethod}`)
 
 }else{
-    result = false;
+
+    name = prompt("Enter your name")
+    name = name.toUpperCase();
+
+    surname = prompt("Enter your surname")
+    surname = surname.toUpperCase();
+
+    const musteri = new Musteri(name, surname, result,products)
+
+    let calculateMethod = musteri.calculate();
+
+    alert(`Customer infos: ${name} ${surname} and amount of paid ${calculateMethod}`)
 
 }
 
